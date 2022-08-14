@@ -1,0 +1,42 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  go-lint:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go_version: ['1.19']
+    steps:
+      -
+        name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go_version }}
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Run Golangci linter
+        uses: golangci/golangci-lint-action@v3
+  go-test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go_version: ['1.19']
+    steps:
+      -
+        name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: ${{ matrix.go_version }}
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Run golang unit tests
+        run: |
+          go test -race -covermode atomic -coverprofile=covprofile ./...
