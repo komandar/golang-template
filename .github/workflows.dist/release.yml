@@ -1,9 +1,13 @@
 name: release
 
 on:
-  push:
-    tags:
-      - v*
+  workflow_dispatch:
+  release:
+    types: [published]
+
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
 
 jobs:
   release:
