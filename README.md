@@ -24,15 +24,14 @@ Click the `Use this template` button at the top of this project's GitHub page, i
 **Easy text replacements**
 
 1. Replace all occurances of `USERNAME`
-2. Replace all occurances of `GO_PROJECT_NAME`
+1. Replace all occurances of `GO_PROJECT_NAME`
 
 **File configuration**
 
 1. Change the name of the `package` folder to match your project name
-2. Configure the `go.mod` file
-3. Update the name in the `LICENSE` file
-4. Rename the `.github/workflows.dist` folder to `workflows`
-5. Configure the `.github/workflows/build.yml` file
-6. Update the `CHANGELOG.md`
-7. Rename other files/folders as needed and configure their content
-8. Delete this `README` and rename `README.dist.md` to `README.md`
+1. Configure the `go.mod` file
+1. Update the author in the `LICENSE` file
+1. Update variables on top of the `Makefile` file
+1. Rename the `.github/workflows.dist` folder to `workflows`
+1. Update the `CHANGELOG.md`
+1. Delete this `README`, update and rename `README.dist.md` to `README.md`
