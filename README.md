@@ -4,7 +4,6 @@
 
 A Golang project template to save you time and energy.
 
-[![Build Status](https://github.com/komandar/golang-template/workflows/build/badge.svg)](https://github.com/komandar/golang-template/actions)
 [![Licence](https://img.shields.io/github/license/komandar/golang-template)](LICENSE)
 
 <img src="https://raw.githubusercontent.com/komandar/assets/main/src/golang-template/showcase.png" alt="Showcase">
