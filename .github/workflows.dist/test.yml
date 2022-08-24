@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - v*
 
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
@@ -13,35 +15,42 @@ concurrency:
 
 jobs:
   go-lint:
+    name: lint-${{ matrix.go_version }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: ['1.19']
+        go_version: ['^1.19']
     steps:
       -
         name: Setup go
         uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go_version }}
+          cache: true
       -
         name: Checkout
         uses: actions/checkout@v3
       -
-        name: Run Golangci linter
+        name: Run golangci linter
         uses: golangci/golangci-lint-action@v3
+        with:
+          version: latest
+          skip-go-installation: true
   go-test:
+    name: test-${{ matrix.go_version }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: ['1.19']
+        go_version: ['^1.19']
     steps:
       -
         name: Setup go
         uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go_version }}
+          cache: true
       -
         name: Checkout
         uses: actions/checkout@v3

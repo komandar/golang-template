@@ -1,0 +1,36 @@
+---
+linters-settings:
+  errcheck:
+    exclude: ./.errcheck_excludes.txt
+  misspell:
+    locale: US
+
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+    - deadcode
+    - depguard
+    - errcheck
+    - exportloopref
+    - fieldaligment
+    - goconst
+    - gocritic
+    - gocyclo
+    - gofumpt
+    - goimports
+    - goreporter
+    - gosimple
+    - govet
+    - ineffassign
+    - misspell
+    - prealloc
+    - revive
+    - rowserrcheck
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unparam
+    - unused
+    - varcheck
+    - whitespace
