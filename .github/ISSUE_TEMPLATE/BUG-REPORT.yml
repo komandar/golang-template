@@ -63,8 +63,8 @@ body:
         - Firefox
         - Microsoft Edge
         - Opera
-        - Other
         - Safari
+        - "N/A"
     validations:
       required: false
   - type: dropdown
@@ -77,5 +77,6 @@ body:
         - Windows
         - Linux
         - Mac
+        - "N/A"
     validations:
       required: false
