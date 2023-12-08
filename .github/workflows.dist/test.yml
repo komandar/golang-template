@@ -20,17 +20,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: ['^1.19']
+        go_version: ['^1.21']
     steps:
       -
         name: Setup go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go_version }}
           cache: true
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Run golangci linter
         uses: golangci/golangci-lint-action@v3
@@ -43,17 +43,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go_version: ['^1.19']
+        go_version: ['^1.21']
     steps:
       -
         name: Setup go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go_version }}
           cache: true
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Run golang unit tests
         run: |
